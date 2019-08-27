@@ -1,0 +1,21 @@
+﻿@model Rently.ViewModels.CustomerViewModel
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Customers.Count == 0)
+{
+    <p> We don't have any customers yet</p>
+}
+else
+{
+    <h2>Customers</h2>
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
