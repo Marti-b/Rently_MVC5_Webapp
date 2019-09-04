@@ -1,10 +1,7 @@
 ﻿using Rently.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using Rently.ViewModels;
 using System.Data.Entity;
 
@@ -30,7 +27,7 @@ namespace Rently.Controllers
 
             var viewModel = new MovieFormViewModel
             {
-                Movie = new Movie(),
+
                 GenreTypes = listOfGenreType
             };
 
@@ -43,9 +40,9 @@ namespace Rently.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
+                
                 GenreTypes = _context.GenreTypes.ToList()
             };
 
@@ -75,9 +72,9 @@ namespace Rently.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MovieFormViewModel
+                var viewModel = new MovieFormViewModel(movie)
                 {
-                    Movie = movie,
+                  
                     GenreTypes = _context.GenreTypes.ToList()
 
                 };
