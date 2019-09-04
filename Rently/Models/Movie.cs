@@ -26,6 +26,8 @@ namespace Rently.Models
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Number in Stock")]
+        [Required]
+        [Range(1,20)]
         public byte NumberInStock { get; set; }
 
     }
