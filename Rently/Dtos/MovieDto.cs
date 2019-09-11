@@ -18,6 +18,7 @@ namespace Rently.Dtos
         [Required]
         public byte GenreTypeId { get; set; }
 
+        public GenreTypeDto Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
 
         public DateTime DateAdded { get; set; }
