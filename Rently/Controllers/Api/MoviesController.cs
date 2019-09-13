@@ -72,11 +72,14 @@ public class MoviesController : ApiController
         var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
 
         if (movieInDb == null)
+        {
             return NotFound();
+        }
+       
 
         _context.Movies.Remove(movieInDb);
         _context.SaveChanges();
 
         return Ok();
-    }
+    } 
 }
