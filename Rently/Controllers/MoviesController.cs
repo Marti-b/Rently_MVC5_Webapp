@@ -20,7 +20,7 @@ namespace Rently.Controllers
         {
             _context.Dispose();
         }
-
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult New()
         {
             var listOfGenreType = _context.GenreTypes.ToList();
@@ -50,9 +50,12 @@ namespace Rently.Controllers
         }
         public ViewResult Index()
         {
+            if (User.IsInRole(RoleName.Admin))
+            {
+                return View("List");
+            }
 
-
-            return View();
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
