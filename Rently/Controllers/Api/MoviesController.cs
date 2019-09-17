@@ -7,6 +7,7 @@ using System.Data.Entity;
 using Rently.Dtos;
 using Rently.Models;
 
+
 public class MoviesController : ApiController
 {
     private ApplicationDbContext _context;
@@ -15,7 +16,7 @@ public class MoviesController : ApiController
     {
         _context = new ApplicationDbContext();
     }
-
+    
     public IEnumerable<MovieDto> GetMovies()
     {
         return _context.Movies
@@ -33,8 +34,9 @@ public class MoviesController : ApiController
 
         return Ok(Mapper.Map<Movie, MovieDto>(movie));
     }
-
+ 
     [HttpPost]
+    [Authorize(Roles = RoleName.Admin)]
     public IHttpActionResult CreateMovie(MovieDto movieDto)
     {
         if (!ModelState.IsValid)
@@ -49,6 +51,7 @@ public class MoviesController : ApiController
     }
 
     [HttpPut]
+    [Authorize(Roles = RoleName.Admin)]
     public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
     {
         if (!ModelState.IsValid)
@@ -67,6 +70,7 @@ public class MoviesController : ApiController
     }
 
     [HttpDelete]
+    [Authorize(Roles = RoleName.Admin)]
     public IHttpActionResult DeleteMovie(int id)
     {
         var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);

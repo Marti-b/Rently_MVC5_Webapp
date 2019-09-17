@@ -7,7 +7,7 @@ using Rently.Dtos;
 using Rently.Models;
 
 namespace Rently.Controllers.Api
-{
+{ 
     public class CustomersController : ApiController
     {
         private ApplicationDbContext _context;
@@ -41,6 +41,7 @@ namespace Rently.Controllers.Api
 
         // POST /api/customers
         [HttpPost]
+        [Authorize(Roles = RoleName.Admin)]
         public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
@@ -56,6 +57,7 @@ namespace Rently.Controllers.Api
 
         // PUT /api/customers/1
         [HttpPut]
+        [Authorize(Roles = RoleName.Admin)]
         public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
@@ -75,6 +77,7 @@ namespace Rently.Controllers.Api
 
         // DELETE /api/customers/1
         [HttpDelete]
+        [Authorize(Roles = RoleName.Admin)]
         public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);

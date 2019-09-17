@@ -22,7 +22,7 @@ namespace Rently.Controllers
         {
             _context.Dispose();
         }
-
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -66,9 +66,12 @@ namespace Rently.Controllers
         }
         public ViewResult Index()
         {
-            //var customer = _context.Customers.Include(c => c.MembershipType).ToList();
 
-            return View();
+            if (User.IsInRole("Admin"))
+            {
+                return View("List");
+            }
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
