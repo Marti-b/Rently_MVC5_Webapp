@@ -65,6 +65,10 @@ namespace Rently.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Phone Number")]
+        public string Phone { get; set; }
+
+        [Required]
         [Display(Name = "Driving License")]
         public string DrivingLicense { get; set; }
         [Required]
