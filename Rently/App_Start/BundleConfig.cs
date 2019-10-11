@@ -15,7 +15,8 @@ namespace Rently
                 "~/Scripts/respond.js",
                 "~/scripts/datatables/jquery.datatables.js",
                 "~/scripts/datatables/datatables.bootstrap.js",
-                "~/scripts/typeahead.bundle.js"
+                "~/scripts/typeahead.bundle.js",
+                "~/scripts/toastr.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -30,6 +31,7 @@ namespace Rently
                 "~/Content/bootstrap-lumen.css",
                 "~/content/datatables/css/datatables.bootstrap.css",
                 "~/Content/typeahead.css",
+                "~/Content/toastr.css",
                 "~/Content/site.css"));
         }
     }
