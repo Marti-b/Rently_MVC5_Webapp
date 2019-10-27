@@ -76,7 +76,7 @@ public class MoviesController : ApiController
         return Ok();
     }
 
-    [HttpDelete]
+    [HttpPost]
     [Authorize(Roles = RoleName.Admin)]
     public IHttpActionResult DeleteMovie(int id)
     {

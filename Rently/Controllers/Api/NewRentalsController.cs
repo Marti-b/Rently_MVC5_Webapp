@@ -30,12 +30,12 @@ namespace Rently.Controllers.Api
 
             foreach (var movie in movies)
             {
-                if (movie.NumberInStock == 0)
+                if (movie.NumberAvailable == 0)
                 {
                     return BadRequest("Movie is not available");
                 }
 
-                movie.NumberInStock--;
+                movie.NumberAvailable--;
 
                 var rental = new Rental
                 {

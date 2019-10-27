@@ -81,7 +81,7 @@ namespace Rently.Controllers.Api
         }
 
         // DELETE /api/customers/1
-        [HttpDelete]
+        [HttpPost]
         [Authorize(Roles = RoleName.Admin)]
         public IHttpActionResult DeleteCustomer(int id)
         {

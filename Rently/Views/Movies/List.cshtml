@@ -63,7 +63,7 @@
                     if (result) {
                         $.ajax({
                             url: "/api/movies/" + button.attr("data-movie-id"),
-                            method: "DELETE",
+                            method: "POST",
                             success: function () {
                                 table.row(button.parents("tr")).remove().draw();
                             }

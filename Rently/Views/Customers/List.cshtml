@@ -62,7 +62,7 @@
                     if (result) {
                         $.ajax({
                             url: "/api/customers/" + button.attr("data-customer-id"),
-                            method: "DELETE",
+                            method: "POST",
                             success: function () {
                                 table.row(button.parents("tr")).remove().draw();
                             }
